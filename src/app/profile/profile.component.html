@@ -1,12 +1,11 @@
+<!--- Interpolation {{}} Section -->
+
 <h1>Interpolation Example</h1>
 <h2>
-    I am {{name.toUpperCase()}}. my age is {{age}} .
-    my salary is {{salary * 73}} INR.
-
+  I am {{ name.toUpperCase() }}. my age is {{ age }} . my salary is
+  {{ salary * 73 }} INR.
 </h2>
-<h2>
-    Here i am calling method {{getTotalNum()}}
-</h2>
+<h2>Here i am calling method {{ getTotalNum() }}</h2>
 
 <!-- we can use typescript code inside class by wrapping up class inside square [] -->
 <!-- Example of property binding -->
@@ -18,11 +17,70 @@
 
 <!-- we have to use $event for get e inside of a function .. -->
 
-<input type="text" [value]="firstName" (input)="getInput($event)"/>
-<input type="text" [value]="lastName" (input)="lastName = $any($event).target.value"/>
-<!-- This is called two way data binding  -->
-<input type="text" [(ngModel)]="address">
+<input type="text" [value]="firstName" (input)="getInput($event)" />
+<input
+  type="text"
+  [value]="lastName"
+  (input)="lastName = $any($event).target.value"
+/>
 
-<strong>First name:</strong> {{firstName}}
-<strong>Last name:</strong> {{lastName}}
-<strong>Address:</strong> {{address}}
+<!-- This is called two way data binding  -->
+
+<input type="text" [(ngModel)]="address" />
+
+<strong>First name:</strong> {{ firstName }} <strong>Last name:</strong>
+{{ lastName }} <strong>Address:</strong> {{ address }}
+
+<!--- Directives Section --->
+
+<h2 class="center">Directives In Angular (structured directives)</h2>
+
+<h3 *ngIf="salary > 50; else lowsalary">
+  Here we are learing directives: And it's like conditional operator in react.
+  if condition is written using: <br />
+  <strong> *ngIf conditon...; else elseBlockName</strong> And else condition is
+  written inside <b>"ng-template"</b> with #condition name.
+</h3>
+
+<ng-template #lowsalary>
+  <h3>Here else conditon is showing ....</h3>
+</ng-template>
+
+<hr />
+
+<h3 class="center">Use of *ngFor</h3>
+
+<ul>
+  <li
+    *ngFor="let val of fruits; index as i; even as e"
+    [class]="e ? 'red' : 'blue'"
+  >
+    <h3>Is even {{ e }} {{ i }} {{ val }}</h3>
+  </li>
+</ul>
+
+<hr>
+
+<h3 class="center">Use of ngClass</h3>
+<ul>
+    <Strong>[ngClass] is alternative method of  giving class conditionaly</Strong>
+
+    <li *ngFor="let val of fruits; index as i; even as e" [ngClass]="{'red' : e, 'green' : !e}">
+        <h3>
+            {{val}}
+        </h3>
+    </li>
+</ul>
+
+<hr>
+
+<h3 class="center">Pipes use</h3>
+<h3>Pipes is used for formatting content</h3>
+<h3>Convert First character to upper case using "titlecase" pipe</h3>
+<h3>{{name | titlecase}}</h3>
+<h3>Currency Pipe : {{salary | currency: 'INR'}</h3>
+
+<input type="date" [(ngModel)]='myDate' />
+<h3>Date Pipe : {{myDate | date:'dd MMMM YYYY'}}</h3>
+
+

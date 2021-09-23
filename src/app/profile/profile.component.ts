@@ -8,7 +8,8 @@ import { Component } from "@angular/core";
 })
 
 export class ProfileComponent{
-    name:string = 'Ramesh';
+    myDate!: string;
+    name:string = 'john cena';
     age:number = 20;
     status:string = 'coder';
     salary:number = 100; 
@@ -17,6 +18,8 @@ export class ProfileComponent{
     firstName:string = 'Gaurav';
     lastName:string = 'pant';
     address:string | undefined;
+
+    fruits: string[] = ['banana','apple','mango','grapes']
     // when page loads constructor call automatically 
     constructor(){
         const colors =  ['red','green','pink','yellow','blue'];
