@@ -14,14 +14,24 @@ export class ProfileComponent{
     salary:number = 100; 
     btnColor:string;
     isDisabled:boolean = true;
-
-    getTotalNum(){
-        return this.age*this.salary
-    }
+    firstName:string = 'Gaurav';
+    lastName:string = 'pant';
+    address:string | undefined;
     // when page loads constructor call automatically 
     constructor(){
         const colors =  ['red','green','pink','yellow','blue'];
         this.btnColor = "btn "+colors[Math.floor(Math.random() * colors.length)];
         setTimeout(() => this.isDisabled = false, 3000);
+    }
+    getTotalNum(){
+        return this.age*this.salary
+    }
+
+    convertToInr(){
+        alert(this.salary);
+    }
+
+    getInput(e:any){
+       this.firstName = e.target.value;
     }
 }

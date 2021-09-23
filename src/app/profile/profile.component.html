@@ -1,7 +1,7 @@
 <h1>Interpolation Example</h1>
 <h2>
-    I am {{name.toUpperCase()}}. my age is {{age}}.
-    my salary is {{salary * 73}} .
+    I am {{name.toUpperCase()}}. my age is {{age}} .
+    my salary is {{salary * 73}} INR.
 
 </h2>
 <h2>
@@ -11,3 +11,18 @@
 <!-- we can use typescript code inside class by wrapping up class inside square [] -->
 <!-- Example of property binding -->
 <button [class]="btnColor" [disabled]="isDisabled">Click Me</button>
+
+<!-- Event Binding use => For that we use round () -->
+
+<button class="btn" (click)="convertToInr()">Show Salary in $</button>
+
+<!-- we have to use $event for get e inside of a function .. -->
+
+<input type="text" [value]="firstName" (input)="getInput($event)"/>
+<input type="text" [value]="lastName" (input)="lastName = $any($event).target.value"/>
+<!-- This is called two way data binding  -->
+<input type="text" [(ngModel)]="address">
+
+<strong>First name:</strong> {{firstName}}
+<strong>Last name:</strong> {{lastName}}
+<strong>Address:</strong> {{address}}
