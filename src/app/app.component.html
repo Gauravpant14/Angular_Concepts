@@ -1,2 +1,11 @@
 
-<my-profile></my-profile>
+<!-- <my-profile></my-profile> -->
+<!-- You can find component name in selector in typescript file of component -->
+<h2 style="text-align: center;">Pass Data from Parent to Child using "Input" Decorator</h2>
+<app-users 
+ *ngFor="let items of users"
+ [name]="items.name"
+ [age]="items.age"
+ >
+</app-users>
+
