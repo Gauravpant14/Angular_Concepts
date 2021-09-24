@@ -1,11 +1,16 @@
-
 <!-- <my-profile></my-profile> -->
 <!-- You can find component name in selector in typescript file of component -->
-<h2 style="text-align: center;">Pass Data from Parent to Child using "Input" Decorator</h2>
-<app-users 
- *ngFor="let items of users"
- [name]="items.name"
- [age]="items.age"
- >
-</app-users>
 
+  <!-- We are listing the event(that is created in child component) here in parent, when event is triggred then we are sending the data to receivedData function"  -->
+
+<app-users
+  *ngFor="let items of users"
+  [name]="items.name"
+  [age]="items.age"
+  (myEvent)="receivedData($event)"
+>
+ <h3 class="head" style="text-align: center">
+    Pass Data from Child to Parent using "output" and event Decorator 
+  </h3>
+  <h3 class="ngCon">Pass Html from parent to child using ngContent</h3>
+</app-users>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/models/user';
 
 //this is called decorator and decorator always starts with @ sign.
 @Component({
@@ -7,10 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  users = [
+  users:Array<User> = [
     { name: 'React', age: 22 },
     { name: 'Node', age: 23 },
     { name: 'Vue', age: 21},
     { name: 'Angular', age: 23 },
   ];
+
+  //here we are getting child data
+  receivedData(e:any){
+    console.log(e);
+  }
 }
