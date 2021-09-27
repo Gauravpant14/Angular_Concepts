@@ -5,10 +5,10 @@ import { Directive, ElementRef } from '@angular/core';
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
-  el: ElementRef;
-  constructor(el: ElementRef) { 
-    this.el = el
-  //  el.nativeElement.style.backgroundColor = 'green';
+  //when we use private inside cunstructor then  the element inside constuctor is available to the whole class
+  // this is also called as constructor injection... 
+  constructor(private el: ElementRef) { 
+ 
   }
   
   ngOnInit(){
