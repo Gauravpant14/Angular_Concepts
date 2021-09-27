@@ -1,27 +1,4 @@
-<!-- <my-profile></my-profile> -->
-<!-- You can find component name in selector in typescript file of component -->
-
-  <!-- We are listing the event(that is created in child component) here in parent, when event is triggred then we are sending the data to receivedData function"  -->
-  
-  <h2>{{title}}</h2>
-  <input type="text" [(ngModel)]="title">
-<div  *ngIf="show">
-  <app-users
-  *ngFor="let items of users"
-  [name]="items.name"
-  [age]="items.age"
-  (myEvent)="receivedData($event)"
-  [title] = "title"
-  
->
- <h3 class="head" style="text-align: center">
-    Pass Data from Child to Parent using "output" and event Decorator 
-  </h3>
-  <h3 class="ngCon">Pass Html from parent to child using ngContent</h3>
-</app-users>
-</div>
-
-<h3>{{countryNum | ccode:countryName}}</h3>    //using our custom pipe here
+<!-- using our custom pipe here -->
+<h3>{{countryNum | ccode:countryName}}</h3>    
 <button (click)="getInd($event)">India</button>
 <button (click)="getInd($event)">USA</button>
-<button class="btn red" (click)= "show = !show">Toggle Component</button>
