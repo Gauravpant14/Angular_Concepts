@@ -1,9 +1,14 @@
 //ng-content is used for showing parent passed html
-<ng-content select=".head"></ng-content>
 <!-- <h3>{{title}}</h3> -->
-<h1>{{text}}</h1>
-<h2>{{name | titlecase}}</h2>
-<h2>{{age}}</h2>
-<h2>{{title}}</h2>
-<ng-content select=".ngCon"></ng-content>
+<div class="card" style="width: 50%;" appHighlight>
+    <div class="card-content">
+        <ng-content select=".head"></ng-content>
+        <h3>{{text}}</h3>
+        <h3>{{name | titlecase}}</h3>
+        <h3>{{age}}</h3>
+        <h3>{{title}}</h3>
+        <ng-content select=".ngCon"></ng-content>
+    </div>
+   
+</div>
 <button class="btn blue" (click)="passData()">Pass Data to Parent</button>
