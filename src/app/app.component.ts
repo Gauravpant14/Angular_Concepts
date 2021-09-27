@@ -9,6 +9,7 @@ import { User } from 'src/models/user';
 })
 export class AppComponent {
   title:string = 'header'
+  show:boolean = true
   users:Array<User> = [
     { name: 'React', age: 22 },
     // { name: 'Node', age: 23 },

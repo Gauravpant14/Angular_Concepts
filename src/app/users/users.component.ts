@@ -6,6 +6,7 @@ import {
   OnInit,
   OnChanges,
   SimpleChanges,
+  OnDestroy,
 } from '@angular/core';
 
 @Component({
@@ -13,7 +14,7 @@ import {
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
 })
-export class UsersComponent implements OnInit, OnChanges {
+export class UsersComponent implements OnInit, OnChanges, OnDestroy {
   @Input() name!: string;
   @Input() age!: number;
   @Input() title!: string;
@@ -28,21 +29,22 @@ export class UsersComponent implements OnInit, OnChanges {
   constructor() {
     console.log('constructor called', this.name);
   }
-  // 1st life cycle Method:
-  // Method ek he bar call hoga ..jb component bn kr tyar hota h ..
-  // OR constructor bhi 1 he bar call  hota h lekin jb jb class ka instance bnega tb tb constructor call hoga..
 
   ngOnChanges(value: SimpleChanges) {
-    // "SimpleChanges is the type of value; ngOnChnges will load after constructor and before ngOninit, this has access of @Input, if it changes then it'll load ",
-
     console.log("ngOnChanges =>", value);
   }
+ 
+  listnerRef!:any;
 
   ngOnInit() {
     this.text = 'Content Loaded';
     console.log('ngOnInItCalled');
-    //properties
-    //event listner
-    // initial data fetch
+    this.listnerRef = setInterval(() => {console.log("timer running....")}, 3000);
+  }
+
+  ngOnDestroy(){
+    //here we write cleanup code
+    console.log('component destroyed');
+    clearInterval(this.listnerRef);
   }
 }
