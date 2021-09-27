@@ -8,11 +8,12 @@ import { User } from 'src/models/user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  title:string = 'header'
   users:Array<User> = [
     { name: 'React', age: 22 },
-    { name: 'Node', age: 23 },
-    { name: 'Vue', age: 21},
-    { name: 'Angular', age: 23 },
+    // { name: 'Node', age: 23 },
+    // { name: 'Vue', age: 21},
+    // { name: 'Angular', age: 23 },
   ];
 
   //here we are getting child data
