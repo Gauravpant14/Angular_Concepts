@@ -5,8 +5,13 @@ import { Directive, ElementRef } from '@angular/core';
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
-
+  el: ElementRef;
   constructor(el: ElementRef) { 
-   el.nativeElement.style.backgroundColor = 'green';
+    this.el = el
+  //  el.nativeElement.style.backgroundColor = 'green';
+  }
+  
+  ngOnInit(){
+    this.el.nativeElement.style.backgroundColor = 'green';
   }
 }
