@@ -1,4 +1,4 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core';
 
 //directives are used as attributes (like ngFor) etc so ,it is written as [] inside selector
 @Directive({
@@ -10,8 +10,17 @@ export class HighlightDirective {
   constructor(private el: ElementRef) { 
  
   }
-  
+
+  @HostBinding('style.backgroundColor') bgColor:any;
+  @HostListener('mouseenter')
+  onEnter(){
+    this.bgColor = 'red'
+  }
+  @HostListener('mouseleave')
+  onOut(){
+    this.bgColor = 'transparent'
+  }
   ngOnInit(){
-    this.el.nativeElement.style.backgroundColor = 'green';
+    this.bgColor = 'yellow'
   }
 }
