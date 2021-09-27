@@ -21,5 +21,7 @@
 </app-users>
 </div>
 
-
+<h3>{{countryNum | ccode:countryName}}</h3>    //using our custom pipe here
+<button (click)="getInd($event)">India</button>
+<button (click)="getInd($event)">USA</button>
 <button class="btn red" (click)= "show = !show">Toggle Component</button>

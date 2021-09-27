@@ -8,6 +8,8 @@ import { User } from 'src/models/user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  countryName!:string;
+  countryNum: number = 567565445;
   title:string = 'header'
   show:boolean = true
   users:Array<User> = [
@@ -20,5 +22,9 @@ export class AppComponent {
   //here we are getting child data
   receivedData(e:any){
     console.log(e);
+  }
+
+  getInd(e:any){
+   this.countryName = e.target.innerText;
   }
 }

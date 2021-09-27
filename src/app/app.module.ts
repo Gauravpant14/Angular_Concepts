@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { HighlightDirective } from '../directives/highlight.directive';
+import { CcodePipe } from '../pipes/ccode.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     UsersComponent,
     HighlightDirective,
+    CcodePipe,
   ],
   imports: [
     BrowserModule,
