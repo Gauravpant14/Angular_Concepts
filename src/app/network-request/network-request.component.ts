@@ -1,3 +1,4 @@
+import { JokeService } from './../services/joke.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,21 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NetworkRequestComponent implements OnInit {
   loader:string = 'Loading Users'
-  users:any = [];
-  constructor(private http:HttpClient) {
-    
+  joke:string = 'No joke yet';
+  constructor(private JokeService: JokeService) {
+   
    }
 
   ngOnInit(): void {
-    this.fetchData()
-  }
-
-  fetchData(){
-    this.http.get('https://jsonplaceholder.typicode.com/users')
-    .subscribe(data => {
-     this.users = data
-     console.log(this.users);
-    })
+     this.JokeService.getJoke().subscribe((data:any) => {
+      this.joke = data.value;
+     })
   }
 
 }
