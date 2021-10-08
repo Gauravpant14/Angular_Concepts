@@ -1,0 +1,27 @@
+<h1>network-request works!</h1>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+    </thead>
+        <tbody *ngIf="users.length > 0; else other_content">
+            <tr *ngFor="let data of users">
+                <td >
+                   {{data.name}}
+                </td>
+                <td>
+                    {{data.email}}
+                </td>
+                <td>
+                 {{data.id}}
+             </td>
+            </tr>
+         </tbody>
+         <ng-template #other_content>
+             {{loader}}
+         </ng-template>
+</table>
+
+
